@@ -36,6 +36,9 @@ textarea {
   outline: none;
   text-align: center;
   padding: none;
+  color: #000000 !important;
+  height: 80px;
+
 }
 /* below is the class for the div container that it is all wrapped in */
 /* need to change the color back to white instead of black */
@@ -70,6 +73,7 @@ textarea {
   color: white;
 }
 
+
 /* for the save button on the left side of the todo list */
 .saveBtn {
   border-left: 2px solid black;
@@ -78,6 +82,8 @@ textarea {
   background-color: #06aed5; 
   /* border-top: 5px solid black; */
   color: white;
+  border-left:none;
+  height: 80px;
 }
 
 .saveBtn i:hover {
