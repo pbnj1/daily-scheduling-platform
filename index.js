@@ -1,66 +1,112 @@
 // top section with the title and time stamp
 var TitleText = $(".jumbotron");
 var timeStamp = $("<h5>");
-var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+var time = moment().format("MMMM Do YYYY");
 $(timeStamp).text(time);
 TitleText.append(timeStamp);
 // end of top section with the title and time sta
 
-// working on the save button function
+// Save button function that will save to local storage
+$(".saveBtn").on("click", function(){
 
+    
+    // the code below works when called by the onclick above - but only for one
+    var textInput1 = $("#text1").val();
+    localStorage.setItem("textInput1", textInput1);
+    
+    var textInput2 = $("#text2").val();
+    localStorage.setItem("textInput2", textInput2);
+    
+    // function saveText() {
+    //     // tried to save multiple values to an object...
+    //     var todo = {
+    //       eight: $(".text-area").val(),
+    //       nine: $(".text-area").val(),
+    //       ten: $(".text-area").val(),
+    //     };
+    //     // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+    //     localStorage.setItem("saveText", JSON.stringify(saveText));
+     
+    // var textArr = querySelectorAll(".text-area")
+    // for (let i = 0; i < textArr.length; i++ ){
+    //     if("<textarea>" = "")
+    // }
+}
 
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//retrieving the saved data and getting it on the screen
+  onload = function () {
+  var textRetrieve1 = localStorage.getItem("textInput1");
+  var textRetrieve2 = localStorage.getItem("textInput2");
+  document.getElementById("text1").value = textRetrieve1;
+  document.getElementById("text2").value = textRetrieve2;
+};
 
 // below will get the local time at just the hour
-var localTime = moment().format("h")
-console.log(localTime)
+var localTime = moment().format("H");
+console.log(localTime);
 //////////////////////////////////
 
 
-//  below is trying to figure out how to target the value of an id for an if statement for the hour
-var integer = parseInt((document.getElementById('bob').value), 10);
-console.log(integer)
 
 
-console.log($('#bob').val());
-console.log(document.getElementById('bob').value);
-console.log(localTime);
-// /////////////////////////////////////////////////
 
 
-// below is an example of a before vs. after to see if one point in time is before or
-// after another point in time
-var bool1 = moment('2010-10-20')
-    .isBefore('2010-10-21'); //false
-console.log(bool1);
-
-var bool2 = moment('2010-10-20')
-    .isAfter('2010-10-21'); //false
-console.log(bool2);
-// ////////////////////////////////////
 
 
-// general if statement idea to compare time to turn the colors of the 
-// todo sections different colors
-// if(time<newtimestamp){
-//     time-block = .past
-// }else if (time === newtimestamp){
-//     time-block = .present
-// }else{time-block = .future}
-////////////////////////////////////////////////
 
 
+// Functionallity of the textbox changing color to the time
+
+var dataArr = [document.querySelectorAll(".text-area")]
+for(let i = 0; i < dataArr.length; i++){
+
+console.log(dataArr[i])
+
+
+var value = $(".text-area").attr("data-value")
+var currentTime = moment().format("h"); 
+
+console.log(value)
+console.log($(".text-area"))
+
+
+
+
+
+
+ if(value < currentTime){
+        $(".newD").addClass("past")
+}else if( value == currentTime){
+    $(".newD").addClass("present")
+}else($(".newD").addClass("future"))
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//below has appropriate sized text box
+// if(value < currentTime){
+//     $("#text1").addClass("past")
+// }else if( value == currentTime){
+// $("#text1").addClass("present")
+// }else($("#text1").addClass("future"))
+
+
+
+
+// setInterval(() => {
+//     var time = moment().format("h:mm:ss a");
+//   }, 1000);
+//   console.log(time);
+  
