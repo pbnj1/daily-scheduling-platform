@@ -81,20 +81,25 @@ for (let i = 0; i < dataArr.length; i++) {
   console.log(dataArr[i].dataset.value);
   // console.log($(".text-area"))
 
-  // console.log(currentTime)
+  console.log(currentTime)
   // console.log(value)
+
 
   if (value < currentTime) {
     console.log("this is past");
     dataArr[i].classList.add("past");
-  } else if (value === currentTime) {
+  }  else if (value == currentTime) {
     console.log("this is present");
-    // dataArr[i].classList.remove("past")
+    dataArr[i].classList.remove("past")
     dataArr[i].classList.add("present");
-  } else {
+  } else{value > currentTime
     console.log("this is future");
-    // dataArr[i].classList.remove("past")
-    // dataArr[i].classList.remove("present")
+    dataArr[i].classList.remove("past")
+    dataArr[i].classList.remove("present")
     dataArr[i].classList.add("future");
   }
+
+
+
+
 }
